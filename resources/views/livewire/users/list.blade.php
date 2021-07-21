@@ -35,7 +35,8 @@
                             <button type="button" class="btn btn-secondary btn-sm" wire:click="back()">NO</button>
                         </div>
                     @else
-                        <button wire:click="deleteId({{ $value->id }})" class="btn btn-danger btn-sm">Delete</button>
+                        <!-- <button wire:click="deleteId({{ $value->id }})"  class="btn btn-danger btn-sm">Delete</button> -->
+                        <button wire:click.prevent="deleteId({{ $value->id }})" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" class="btn btn-sm btn-danger">Delete</button>
                     @endif
                 @endif
                 </td>
