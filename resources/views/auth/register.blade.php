@@ -10,7 +10,7 @@
             @csrf
 
             <div>
-                <x-jet-label for="ic" value="IC" />
+                <x-jet-label for="ic" value="IC Number" />
                 <x-jet-input id="ic" class="block mt-1 w-full" type="text" name="ic" :value="old('ic')" required autofocus autocomplete="ic" />
             </div>
 
