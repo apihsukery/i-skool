@@ -25,8 +25,10 @@
                 <td>{{ $value->name }}</td>
                 <td>{{ $value->email }}</td>
                 <td>
+                @if(Auth::user()->id===$value->id)
                     <button wire:click="edit({{ $value->id }})" class="btn btn-primary btn-sm">Edit</button>
                     <!-- <button wire:click="deleteId({{ $value->id }})" class="btn btn-danger btn-sm">Delete</button> -->
+                @else
                     @if($delete_id===$value->id)
                         <div class="btn-group">
                             <button type="button" class="btn btn-danger btn-sm" wire:click="delete({{ $value->id }})">YES</button>
@@ -35,6 +37,7 @@
                     @else
                         <button wire:click="deleteId({{ $value->id }})" class="btn btn-danger btn-sm">Delete</button>
                     @endif
+                @endif
                 </td>
             </tr>
             @endforeach
