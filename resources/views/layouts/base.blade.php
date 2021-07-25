@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Users</h1>
+                    <h1 class="m-0">{{$title}}</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -23,7 +23,7 @@
                 <div class="col-lg-12">
                     <div class="card card-primary">
                         <div class="card-body">
-                            @livewire('users')
+                            {{ $slot }}
                         </div>
                     </div><!-- /.card -->
                 </div>

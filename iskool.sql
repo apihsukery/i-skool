@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 21, 2021 at 03:07 PM
+-- Generation Time: Jul 25, 2021 at 04:32 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.21
 
@@ -64,6 +64,33 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `parameter`
+--
+
+CREATE TABLE `parameter` (
+  `id` bigint(20) NOT NULL,
+  `param_one` int(3) NOT NULL,
+  `param_two` int(3) NOT NULL DEFAULT '0',
+  `param_three` int(3) NOT NULL DEFAULT '0',
+  `param_four` int(3) NOT NULL DEFAULT '0',
+  `param_five` int(3) NOT NULL DEFAULT '0',
+  `shortdesc` varchar(255) DEFAULT NULL,
+  `description` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `parameter`
+--
+
+INSERT INTO `parameter` (`id`, `param_one`, `param_two`, `param_three`, `param_four`, `param_five`, `shortdesc`, `description`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, 0, 0, 0, 'SUB', 'Subject', '2021-07-24 10:05:23', '2021-07-24 10:05:23'),
+(2, 2, 0, 0, 0, 0, 'test', 'test', '2021-07-24 11:17:23', '2021-07-24 11:17:23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `password_resets`
 --
 
@@ -111,7 +138,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('9ABltwDI8w3JTOSEb05ZUL2sbTJIcUrORP0nbrYK', 2021001, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiRU1xOUFMRUZJaWphQmkzN2tld1dMeVFncTh6WE5Rc3JrdnhNMHNxbCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjg6Imh0dHA6Ly9pLXNrb29sLnRlc3Qvdmlld3VzZXIiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7czo3OiIyMDIxMDAxIjtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJGFJM2xWRWhlZ2RsSEtVNlZySG1RcWVtY2ZBaUg5dmhJVy5FOFFqdDl0OGZWVmpwYllwYlUuIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRhSTNsVkVoZWdkbEhLVTZWckhtUXFlbWNmQWlIOXZoSVcuRThRanQ5dDhmVlZqcGJZcGJVLiI7fQ==', 1626879905);
+('EKMkIKIJCAZXVVjvxZRObt49TDGtbaXVVLS0V8z7', 2021003, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiYjBQUVlPN0Qxb2NtQ05IaGVHdmtLbVd6MFhPb284MGdGaWs5VFJDeSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9pLXNrb29sLnRlc3QvcGFyYW1ldGVycyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIwMjEwMDM7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRGb3dDTkVOYmNjaGs1OEEvVDhzZnF1bjhOaS5oRlk3RkZ3dGJNRVgyOTFPNk4yb3llVHVzMiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkRm93Q05FTmJjY2hrNThBL1Q4c2ZxdW44TmkuaEZZN0ZGd3RiTUVYMjkxTzZOMm95ZVR1czIiO30=', 1627217172),
+('IgNFp0hbLxcKV8HEVNs9io0WGL25VYpxMrQ2naqF', 2021003, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoidDZCWG5xdG03a1l6QlRvNVBtVWRZcFdMMUdhWnZDOFEyd1VDNm1tSCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjU6Imh0dHA6Ly9pLXNrb29sLnRlc3QvdXNlcnMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YToxOntpOjA7czo3OiJtZXNzYWdlIjt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyMDIxMDAzO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkRm93Q05FTmJjY2hrNThBL1Q4c2ZxdW44TmkuaEZZN0ZGd3RiTUVYMjkxTzZOMm95ZVR1czIiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJEZvd0NORU5iY2NoazU4QS9UOHNmcXVuOE5pLmhGWTdGRnd0Yk1FWDI5MU82TjJveWVUdXMyIjt9', 1627204543);
 
 -- --------------------------------------------------------
 
@@ -140,7 +168,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ic`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(2021001, 920424035867, 'Mohamad Afif', 'apihsukery@gmail.com', NULL, '$2y$10$aI3lVEhegdlHKU6VrHmQqemcfAiH9vhIW.E8Qjt9t8fVVjpbYpbU.', NULL, NULL, NULL, NULL, NULL, '2021-07-21 06:59:39', '2021-07-21 06:59:39');
+(2021003, 920424035867, 'Mohamad Afif Ahmad Sukery', 'apihsukery@gmail.com', NULL, '$2y$10$FowCNENbcchk58A/T8sfqun8Ni.hFY7FFwtbMEX291O6N2oyeTus2', NULL, NULL, NULL, NULL, NULL, '2021-07-21 08:55:50', '2021-07-25 01:15:43');
 
 --
 -- Indexes for dumped tables
@@ -157,6 +185,12 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `parameter`
+--
+ALTER TABLE `parameter`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -203,6 +237,12 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `parameter`
+--
+ALTER TABLE `parameter`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

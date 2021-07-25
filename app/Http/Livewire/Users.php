@@ -13,7 +13,7 @@ class Users extends Component
     public function render()
     {
         $this->users = User::all();
-        return view('livewire.users.list');
+        return view('livewire.users.list')->layout('layouts.base', ['title' => 'Users']);
     }
 
     private function resetInput(){
@@ -66,6 +66,5 @@ class Users extends Component
     public function back()
     {
         $this->updateMode = false;
-        $this->delete_id=NULL;
     }
 }
