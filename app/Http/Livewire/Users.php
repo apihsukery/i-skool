@@ -7,7 +7,7 @@ use App\Models\User;
 
 class Users extends Component
 {
-    public $users, $ic, $name, $email, $selected_id, $delete_id=NULL;
+    public $users, $ic, $name, $email, $selected_id;
     public $updateMode = false;
 
     public function render()
@@ -52,15 +52,10 @@ class Users extends Component
         }
     }
 
-    public function deleteId($id)
-    {
-        $this->delete_id = $id;
-    }
-
     public function delete($id)
     {
-        User::find($this->delete_id)->delete();
-        session()->flash('message', 'Users '.$this->delete_id.' Deleted Successfully.');
+        User::find($id)->delete();
+        session()->flash('message', 'Users '.$id.' Deleted Successfully.');
     }
 
     public function back()

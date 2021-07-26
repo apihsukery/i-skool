@@ -30,15 +30,7 @@
                     <button wire:click="edit({{ $value->id }})" class="btn btn-primary btn-sm">Edit</button>
                     <!-- <button wire:click="deleteId({{ $value->id }})" class="btn btn-danger btn-sm">Delete</button> -->
                 @else
-                    @if($delete_id===$value->id)
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-danger btn-sm" wire:click="delete({{ $value->id }})">YES</button>
-                            <button type="button" class="btn btn-secondary btn-sm" wire:click="back()">NO</button>
-                        </div>
-                    @else
-                        <button wire:click="deleteId({{ $value->id }})"  class="btn btn-danger btn-sm">Delete</button>
-                        <!-- <button wire:click="deleteId({{ $value->id }})" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" class="btn btn-sm btn-danger">Delete</button> -->
-                    @endif
+                    <button wire:click="delete({{ $value->id }})" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" class="btn btn-sm btn-danger">Delete</button>
                 @endif
                 </td>
             </tr>
