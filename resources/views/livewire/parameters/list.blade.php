@@ -26,7 +26,7 @@
                 <th width="5%">ID</th>
                 <th width="30%">Short Description</th>
                 <th>Description</th>
-                <th width="15%">Action</th>
+                <th width="20%">Action</th>
             </tr>
         </thead>
         <tbody>
