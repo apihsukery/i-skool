@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 25, 2021 at 04:32 PM
+-- Generation Time: Jul 26, 2021 at 11:58 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.21
 
@@ -76,8 +76,8 @@ CREATE TABLE `parameter` (
   `param_five` int(3) NOT NULL DEFAULT '0',
   `shortdesc` varchar(255) DEFAULT NULL,
   `description` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -85,8 +85,16 @@ CREATE TABLE `parameter` (
 --
 
 INSERT INTO `parameter` (`id`, `param_one`, `param_two`, `param_three`, `param_four`, `param_five`, `shortdesc`, `description`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, 0, 0, 0, 'SUB', 'Subject', '2021-07-24 10:05:23', '2021-07-24 10:05:23'),
-(2, 2, 0, 0, 0, 0, 'test', 'test', '2021-07-24 11:17:23', '2021-07-24 11:17:23');
+(12, 1, 0, 0, 0, 0, 'Subject', 'List Subject', NULL, NULL),
+(13, 1, 1, 0, 0, 0, 'BM', 'Bahasa Melayu', NULL, NULL),
+(15, 1, 3, 0, 0, 0, 'Math', 'Mathematics', NULL, NULL),
+(16, 2, 0, 0, 0, 0, 'Grade', 'List Grade', NULL, '2021-07-26 02:29:40'),
+(19, 2, 2, 0, 0, 0, 'A', 'A', NULL, NULL),
+(20, 2, 3, 0, 0, 0, 'A-', 'A-', NULL, NULL),
+(21, 2, 1, 0, 0, 0, 'A+', 'A+', NULL, NULL),
+(22, 1, 2, 0, 0, 0, 'BI', 'Bahasa Inggeris', NULL, NULL),
+(26, 1, 4, 0, 0, 0, 'AddMath', 'Additional Mathematics', '2021-07-26 11:35:04', '2021-07-26 11:58:04'),
+(27, 2, 4, 0, 0, 0, 'B+', 'B+', '2021-07-26 11:35:28', '2021-07-26 11:35:28');
 
 -- --------------------------------------------------------
 
@@ -138,8 +146,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('EKMkIKIJCAZXVVjvxZRObt49TDGtbaXVVLS0V8z7', 2021003, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiYjBQUVlPN0Qxb2NtQ05IaGVHdmtLbVd6MFhPb284MGdGaWs5VFJDeSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9pLXNrb29sLnRlc3QvcGFyYW1ldGVycyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIwMjEwMDM7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRGb3dDTkVOYmNjaGs1OEEvVDhzZnF1bjhOaS5oRlk3RkZ3dGJNRVgyOTFPNk4yb3llVHVzMiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkRm93Q05FTmJjY2hrNThBL1Q4c2ZxdW44TmkuaEZZN0ZGd3RiTUVYMjkxTzZOMm95ZVR1czIiO30=', 1627217172),
-('IgNFp0hbLxcKV8HEVNs9io0WGL25VYpxMrQ2naqF', 2021003, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoidDZCWG5xdG03a1l6QlRvNVBtVWRZcFdMMUdhWnZDOFEyd1VDNm1tSCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjU6Imh0dHA6Ly9pLXNrb29sLnRlc3QvdXNlcnMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YToxOntpOjA7czo3OiJtZXNzYWdlIjt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyMDIxMDAzO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkRm93Q05FTmJjY2hrNThBL1Q4c2ZxdW44TmkuaEZZN0ZGd3RiTUVYMjkxTzZOMm95ZVR1czIiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJEZvd0NORU5iY2NoazU4QS9UOHNmcXVuOE5pLmhGWTdGRnd0Yk1FWDI5MU82TjJveWVUdXMyIjt9', 1627204543);
+('1xEHkhlU21Q3b9INMmGXluwlkeuITYP8iTtTubOs', 2021003, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 Edg/92.0.902.55', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiNVlab1BjYXc4V1pFb21hVHI1Q21vbnVuVHNkc1dpckhka2E0QkVoYSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly9pLXNrb29sLnRlc3QvdXNlci9wcm9maWxlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjAyMTAwMztzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJERqN3dFTGp2WG8uTTFwNXBudnRQTy5XSWxMTnJLUEN0LlU2dEFsYzBVc0UwVHFobDZkZ091IjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRGb3dDTkVOYmNjaGs1OEEvVDhzZnF1bjhOaS5oRlk3RkZ3dGJNRVgyOTFPNk4yb3llVHVzMiI7czo0OiJhdXRoIjthOjE6e3M6MjE6InBhc3N3b3JkX2NvbmZpcm1lZF9hdCI7aToxNjI3MjkyOTc4O319', 1627294046),
+('6dO557CIDz00GxV6R8e6e3hYRPSRIyscUDK1oIWj', 2021003, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiRmpsNDM4ZUpWejBVU3Z4SmxoTTE2WVlYRVVOZmJpeTlEanhHcGROdiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MTp7aTowO3M6NzoibWVzc2FnZSI7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9pLXNrb29sLnRlc3QvcGFyYW1ldGVycyI7fXM6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyMDIxMDAzO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkRGo3d0VManZYby5NMXA1cG52dFBPLldJbExOcktQQ3QuVTZ0QWxjMFVzRTBUcWhsNmRnT3UiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJERqN3dFTGp2WG8uTTFwNXBudnRQTy5XSWxMTnJLUEN0LlU2dEFsYzBVc0UwVHFobDZkZ091Ijt9', 1627300684);
 
 -- --------------------------------------------------------
 
@@ -168,7 +176,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ic`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(2021003, 920424035867, 'Mohamad Afif Ahmad Sukery', 'apihsukery@gmail.com', NULL, '$2y$10$FowCNENbcchk58A/T8sfqun8Ni.hFY7FFwtbMEX291O6N2oyeTus2', NULL, NULL, NULL, NULL, NULL, '2021-07-21 08:55:50', '2021-07-25 01:15:43');
+(2021003, 920424035867, 'Mohamad Afif Ahmad Sukery', 'apihsukery@gmail.com', NULL, '$2y$10$Dj7wELjvXo.M1p5pnvtPO.WIlLNrKPCt.U6tAlc0UsE0Tqhl6dgOu', NULL, NULL, NULL, NULL, NULL, '2021-07-21 08:55:50', '2021-07-26 02:07:26');
 
 --
 -- Indexes for dumped tables
@@ -242,7 +250,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `parameter`
 --
 ALTER TABLE `parameter`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

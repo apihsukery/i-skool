@@ -66,5 +66,6 @@ class Users extends Component
     public function back()
     {
         $this->updateMode = false;
+        $this->resetErrorBag();
     }
 }
